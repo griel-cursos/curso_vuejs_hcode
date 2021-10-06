@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos</title>
+</head>
+<body>
+
+    <div id="methods">
+
+        <h1>{{ message }}</h1>
+
+        <input type="text" v-on:blur='replaceMessage($event.target.value)' placeholder="Digite sua mensagem">
+
+    </div>
+
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+
+    <script>
+        let app = new Vue({
+
+            el: '#methods',
+            data: {
+                message: 'Mensagem para ser exibida',
+            },
+            methods: {
+                reverseMessage: function(){
+
+                    this.message = this.message.split('').reverse().join('');
+
+                },
+                replaceMessage(newMessage){
+                    this.message = newMessage;
+                }
+            }
+
+        });
+    </script>
+    
+</body>
+</html>
