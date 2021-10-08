@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Computed Properties (Propriedades armazenadas)</title>
+    <title>Propriedades Armazenadas</title>
 </head>
 <body>
 
@@ -16,21 +16,22 @@
         <h2>Nome completo (Computed): {{ fullName }}</h2>
         <h2>Nome completo (Computed): {{ fullName }}</h2>
         <h2>Nome completo (Computed): {{ fullName }}</h2>
-        <h2>Nome completo (Método): {{ getFullName() }}</h2>
-        <h2>Nome completo (Método): {{ getFullName() }}</h2>
-        <h2>Nome completo (Método): {{ getFullName() }}</h2>
-        <h2>Nome completo (Método): {{ getFullName() }}</h2>
+
+        <h2>Nome completo (Método): {{ getFullname() }}</h2>
+        <h2>Nome completo (Método): {{ getFullname() }}</h2>
+        <h2>Nome completo (Método): {{ getFullname() }}</h2>
 
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="node_modules/vue/dist/vue.min.js"></script>
 
     <script>
 
-        //Computed Properties deve ser simples. Ela é armazenada em cachê e executada somente uma vez. Os métodos são executados todas as vezes que chamados
+//As computed properties são executadas somente uam vez, deixando o código mais leve
 
         let app = new Vue({
-            el: "#computed",
+
+            el: '#computed',
             data: {
                 person: {
                     firstName: 'Roberto',
@@ -38,17 +39,22 @@
                 }
             },
             methods: {
-                getFullName: function() {
-                    console.log('Método');
-                    return `${this.person.firstName} ${this.person.lastName}`;
+                getFullname: function(){
+
+                    console.log("Método");
+                    return `${this.person.firstName} ${this.person.lastName}`
                 }
             },
             computed: {
                 fullName: function() {
-                    console.log('Computed');
-                    return `${this.person.firstName} ${this.person.lastName}`;
+
+                    console.log("Computed");
+
+                    return `${this.person.firstName} ${this.person.lastName}`
                 }
             }
+
+
         });
     </script>
     

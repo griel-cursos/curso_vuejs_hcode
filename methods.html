@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,30 +12,30 @@
 
         <h1>{{ message }}</h1>
 
-        <input type="text" placeholder="Digite uma nova mensagem" v-on:keyup="replaceMessage($event.target.value)" />
+        <input type="text" v-on:blur='replaceMessage($event.target.value)' placeholder="Digite sua mensagem">
 
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="node_modules/vue/dist/vue.min.js"></script>
 
     <script>
         let app = new Vue({
-            el: "#methods",
+
+            el: '#methods',
             data: {
-                message: 'Mensagem para ser exibida'
+                message: 'Mensagem para ser exibida',
             },
             methods: {
-                reverseMessage: function() {
+                reverseMessage: function(){
 
                     this.message = this.message.split('').reverse().join('');
 
                 },
-                replaceMessage(newMessage) {
-
+                replaceMessage(newMessage){
                     this.message = newMessage;
-
                 }
             }
+
         });
     </script>
     
