@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-IF e V-ELSE</title>
+</head>
+<body>
+
+    <div id="directives">
+
+        <h1 v-if="show">Hcode</h1>
+
+        <h3 key="avaliable" v-if="tickets >= 10">Há {{ tickets }} {{ tickets | pluralize('ingresso') }} disponíveis</h3>
+
+        <h3 key="last" v-else-if="tickets >= 1">Só há {{ tickets }} ingresso!</h3>
+
+        <h3 key="empty" v-else>Os ingressos acabaram</h3>
+
+    </div>
+
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+    <script src="node_modules/vue2-filters/dist/vue2-filters.min.js"></script>
+
+
+    <script>
+
+
+
+        let app = new Vue({
+            el: "#directives",
+            data: {
+                show: true,
+                tickets: 100
+            }
+
+        });
+    </script>
+    
+</body>
+</html>
