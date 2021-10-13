@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretiva: v-once</title>
+</head>
+<body>
+
+    <div id="directives">
+
+        <h1 v-once v-text="name"></h1>
+
+        <p v-once v-text="age"></p>
+
+        <!-- O v-once é executado só uma vez, depois disso ela perde os recursos do vue -->
+
+    </div>
+
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+
+    <script>
+
+
+
+        let app = new Vue({
+            el: "#directives",
+            data: {
+               name: 'Roberto',
+               age: 32
+            }
+
+        });
+    </script>
+    
+</body>
+</html>
