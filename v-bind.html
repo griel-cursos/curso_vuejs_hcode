@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretiva: v-bind</title>
+</head>
+<body>
+
+    <div id="directives">
+
+        <h2>Acesse o site abaixo:</h2>
+
+        <a v-bind:href="url">Site</a>
+
+        <p v-bind:[args]="value">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda minus pariatur, accusamus ad cum officiis. Dicta odit maiores cumque, aliquid aperiam a deleniti nam omnis molestiae, veniam, voluptatem dolores minus.</p>
+
+    </div>
+
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+
+    <script>
+
+
+
+        let app = new Vue({
+            el: "#directives",
+            data: {
+                url: "https://www.griel.com.br",
+                args: 'title',
+                value: 'Parágrafo Dinâmico'
+            }
+
+        });
+    </script>
+    
+</body>
+</html>
