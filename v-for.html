@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretiva: v-for</title>
+</head>
+<body>
+
+    <div id="directives">
+
+        <h2>Cidades do mundo</h2>
+        <ul>
+            <li v-for="city in cities">{{ city }}</li> 
+        </ul>
+
+        <ul>
+            <li v-for="item in citiesObj">
+                {{ item.city }} - {{ item.country }}
+            </li>
+        </ul>
+
+        <h2>Grandes Files</h2>
+
+        <ul>
+            <li v-for="(picture, index) in movies">{{ index }} - {{ picture }}</li>
+        </ul>
+
+        <h2>Empresa</h2>
+
+        <p v-for="(value, key, index) in company">{{ key }}: {{ value }}</p>
+
+    </div>
+
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+
+    <script>
+
+
+
+        let app = new Vue({
+            el: "#directives",
+            data: {
+                cities: ['Nova York', 'São Paulo', 'Londres', 'Rio de Janeiro'],
+                citiesObj: [
+                    {
+                        city: 'Nova York',
+                        country: 'EUA'
+                    },
+                    {
+                        city: 'São Paulo',
+                        country: 'Brasil'
+                    },
+                    {
+                        city: 'Londres',
+                        country: 'Inglaterra'
+                    },
+                    {
+                        city: 'Rio de Janeiro',
+                        country: 'Brasil'
+                    },
+                ],
+                movies: ['Star Wars', 'Vingadores: Ultimato', 'Capitão América'],
+                company: {
+                    name: 'Facebook',
+                    year: 2004,
+                    creator: 'Mark'
+                }
+            }
+
+        });
+    </script>
+    
+</body>
+</html>
