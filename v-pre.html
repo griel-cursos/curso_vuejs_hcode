@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretiva: v-pre</title>
+</head>
+<body>
+
+    <div id="directives">
+
+        <h2 v-pre>{{ name }}</h2>
+        
+        <h3>{{ name }}</h3>
+
+        <p v-pre v-on:click="alert('hello world')">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, quasi excepturi illo eaque cupiditate nihil aperiam voluptatem impedit eius molestias quos praesentium illum dicta architecto minima nisi voluptatibus quis at.</p>
+    </div>
+
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+
+    <script>
+
+        
+
+        let app = new Vue({
+            el: "#directives",
+            data: {
+                name: "Teste"
+            }
+
+        });
+    </script>
+    
+</body>
+</html>
