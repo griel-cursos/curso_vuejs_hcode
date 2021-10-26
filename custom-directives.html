@@ -12,7 +12,11 @@
 
         <h4 v-upper>{{name}}</h4>
 
-        <h5 v-capitalize>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex iste ab esse soluta perspiciatis cupiditate, impedit numquam facere magnam iusto, adipisci voluptatem porro sequi sapiente corrupti voluptates itaque, voluptas temporibus?</h5>
+        <h5 v-capitalize>Hello World {{ name }}</h5>
+
+        <h5 v-custom:parametro.mod1.mod2="'Informação'">Hello World {{ name }}</h5>
+
+        <h2 v-custom="{distance: argumento, distance}">{{ name }}</h2>
         
     </div>
 
@@ -26,6 +30,34 @@
             }
         });
 
+        const setDirection = (el, binding)=>{
+            el.style.margin = 0;
+
+            console.log(el, binding)
+
+            let direction = binding.value.direction.toLowerCase();
+
+            let value = binding.value.distance;
+
+            switch (direction) {
+                case 'left':
+                case 'right':
+                case 'top':
+                case 'bottom':
+
+                    let newDirection = direction.chatAt(0).topUpperCase() + direction.slice(1);
+
+                    eval(`el.style.margin${newDirection} = value + 'px'`);
+                break;
+
+                default:
+                    console.error('Informe a opção correta');
+                break;
+            }
+
+
+        }
+
         //Diretiva local
         let app = new Vue({
             el: "#directives",
@@ -33,15 +65,50 @@
                 name: 'Han Solo'
             },
             directives: {
-                capitalize: (el)=>{
-                    let words = el.innerText.split(' ');
+                /*
+                Funções para diretivas
+                
+                capitalize: {
 
-                    words.forEach((text, index) =>{
+                    bind(el) {
+                        console.log('BIND - FUI VINCULADO');
+                    },
+                    inserted(el) {
 
-                        words[index] = text.charAt(0).toUpperCase() + text.slice(1);
-                    });
+                        console.log('Inserted - fui inserido na página');
 
-                    el.innerText = words.join(' ');
+                        let words = el.innerText.split(' ');
+
+                        words.forEach((text, index) =>{
+
+                            words[index] = text.charAt(0).toUpperCase() + text.slice(1);
+                        });
+
+                        el.innerText = words.join(' ');
+
+                    },
+                    update(el) {
+                        console.log('update - FUI atualizado');
+                    },
+                    unbind(el) {
+                        console.log('unbind - FUI desVINCULADO');
+                    },
+                    componentUpdated(el) {
+                        console.log('Component - O componente foi atualizado');
+                    },
+
+                }, */
+                custom: {
+                    inserted(el, binding, vnode) {
+
+                        setDirection(el, binding)
+
+                    },
+                    update(el, binding, vnode, oldvnode) {
+
+                        setDirection(el, binding)
+
+                    }
                 }
             }
         })
