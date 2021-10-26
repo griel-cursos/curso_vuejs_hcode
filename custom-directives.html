@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretiva personalizadas</title>
+</head>
+<body>
+
+    <div id="directives">
+
+        <h4 v-upper>{{name}}</h4>
+
+        <h5 v-capitalize>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex iste ab esse soluta perspiciatis cupiditate, impedit numquam facere magnam iusto, adipisci voluptatem porro sequi sapiente corrupti voluptates itaque, voluptas temporibus?</h5>
+        
+    </div>
+
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+
+    <script>
+        //Diretiva global
+        Vue.directive('upper', {
+            inserted(element){
+                element.innerText = element.innerText.toUpperCase();
+            }
+        });
+
+        //Diretiva local
+        let app = new Vue({
+            el: "#directives",
+            data: {
+                name: 'Han Solo'
+            },
+            directives: {
+                capitalize: (el)=>{
+                    let words = el.innerText.split(' ');
+
+                    words.forEach((text, index) =>{
+
+                        words[index] = text.charAt(0).toUpperCase() + text.slice(1);
+                    });
+
+                    el.innerText = words.join(' ');
+                }
+            }
+        })
+
+        
+    </script>
+    
+</body>
+</html>
