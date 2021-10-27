@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Blog da Hcode</title>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/css/style.css">
+    </head>
+    <body>
+        
+        <div id="hcode-blog">
+        
+            <header>
+            
+                <div class="container">
+
+                    <nav class="navbar">
+
+                        <a href="#" v-on:click.prevent="toggleLogin" class="text-center logo">
+                            <img src="./assets/img/logo.svg" alt="Hcode Treinamentos">
+                            Blog
+                        </a>
+
+                        <div class="login" v-if="isLogged" key="logged">
+                            <h4>Seja bem-vindo {{ username }}</h4>
+                            <a href="#" v-on:click.prevent="toggleLogin" class="logout bg-danger text-white">Logout</a>
+                        </div>
+
+                        <a href="#" v-on:click.prevent="toggleLogin" class="login bg-primary text-white" v-else key="notLogged">Fazer login</a>
+
+                    </nav>
+
+                </div>
+
+            </header>
+
+            <section class="posts">
+
+                <div class="container">
+
+                    <div class="row post-item" v-for="post in posts">
+
+                        <div class="col-11">
+
+                            <img v-bind:src="post.img" v-bind:alt="post.imgTitle">
+                            <h2>{{ post.title }}</h2>
+                            <p>{{ post.post | truncate(150) }}</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <footer>
+                <p class="text-center">Visite: <a href="https://youtube.com/hcodebrasi">Hcode Treinamentos</a></p>
+            </footer>
+
+        </div>
+
+    </body>
+
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+    <script src="node_modules/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script src="assets/js/Vue.js"></script>
+
+</html>
