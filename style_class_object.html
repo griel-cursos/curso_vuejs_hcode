@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estilos com classes - Objetos</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        .logged {
+            color: red;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="styles">
+
+       <h1 v-bind:class="{ logged: isLogged }">Seja bem-vindo</h1>
+       <!-- Aplicando a classe logged apenas se o isLogged estiver como true -->
+
+       <h3 v-bind:class="classMessage">{{ message }}</h3>
+        
+    </div>
+
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+
+    <script>
+
+        //Diretiva local
+        let app = new Vue({
+            el: "#styles",
+            data: {
+                isLogged: false,
+                error: false
+            },
+            computed: {
+                message() {
+                    
+                    return (!this.error) ? 'Não há erros' : 'Tem um problema'
+                },
+                classMessage() {
+                    return (!this.error) ? 'alert-success' : 'alert-danger'
+                }
+            }
+        })
+
+        
+    </script>
+    
+</body>
+</html>

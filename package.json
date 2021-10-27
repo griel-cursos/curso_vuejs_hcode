@@ -1,0 +1,25 @@
+{
+  "name": "curso_vuejs_hcode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "4.0",
+    "vue": "^2.6.14",
+    "vue2-filters": "^0.13.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/griel-cursos/curso_vuejs_hcode.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/griel-cursos/curso_vuejs_hcode/issues"
+  },
+  "homepage": "https://github.com/griel-cursos/curso_vuejs_hcode#readme"
+}

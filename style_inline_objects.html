@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estilos em linha - Objetos</title>
+</head>
+<body>
+
+    <div id="styles">
+
+        <input type="number" placeholder="Digite o tamanho da fonte" v-model='fontSizeProp'>
+
+        <p v-bind:style="{ fontSize: fontSizeProp + 'px' }">Título</p>
+
+        <hr>
+
+        <h2>Digite o RGB</h2>
+        <input type="number" min="0" max="255" placeholder="Vermelho" v-model='styleRed' />
+        <input type="number" min="0" max="255" placeholder="Verde" v-model='styleGreen' />
+        <input type="number" min="0" max="255" placeholder="Azul" v-model='styleBlue' />
+
+        <div v-bind:style='styleRgb'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ex laudantium aspernatur temporibus ipsam exercitationem culpa amet enim quasi reprehenderit cum, nesciunt nihil ab dolorum facilis. Consequuntur odio delectus adipisci.</div>
+        
+    </div>
+
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+
+    <script>
+
+        //Diretiva local
+        let app = new Vue({
+            el: "#styles",
+            data: {
+                fontSizeProp: 30,
+                styleRed: 255,
+                styleGreen: 105,
+                styleBlue: 80
+            },
+            computed: {
+                styleRgb(){
+                    return {
+                        color: `rgb(${this.styleRed},${this.styleGreen},${this.styleBlue})`
+                    };
+                }
+            }
+        })
+
+        
+    </script>
+    
+</body>
+</html>
